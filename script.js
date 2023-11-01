@@ -1,7 +1,7 @@
 function getComputerChoice() {
     const options = ["Rock", "Paper", "Scissors"];
     let randomIndex = Math.floor(Math.random() * 3);
-    return options[randomIndex]
+    return options[randomIndex];
 }
 
 function playRound(playerSelection, computerSelection) {
@@ -30,9 +30,9 @@ function game(){
     let computerScore = 0;
 
     for(let i=0; i<5; i++){
-        const playerSelection = prompt("Enter your choice: ");
-        const computerSelection = getComputerChoice();
-        const result = playRound(playerSelection, computerSelection);
+        let playerSelection = prompt("Enter your choice: ");
+        let computerSelection = getComputerChoice();
+        let result = playRound(playerSelection, computerSelection);
 
         console.log(result);
 
@@ -56,3 +56,5 @@ function game(){
         console.log("It's a tie!");
     }
 }
+
+game();
