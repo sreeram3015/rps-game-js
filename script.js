@@ -16,43 +16,43 @@ function playRound(playerSelection, computerSelection) {
         (playerChoice === 'rock' && computerChoice === 'scissors') ||
         (playerChoice === 'paper' && computerChoice === 'rock') ||
         (playerChoice === 'scissors' && computerChoice === 'paper')
-    ){
+    ) {
         return `You Win! ${playerChoice} beats ${computerChoice}`;
     }
 
-    else{
+    else {
         return `You Lose! ${computerChoice} beats ${playerChoice}`;
     }
 }
 
-function game(){
+function game() {
     let playerScore = 0;
     let computerScore = 0;
 
-    for(let i=0; i<5; i++){
-        let playerSelection = prompt("Enter your choice: ");
-        let computerSelection = getComputerChoice();
-        let result = playRound(playerSelection, computerSelection);
 
-        console.log(result);
+    let playerSelection = prompt("Enter your choice: ");
+    let computerSelection = getComputerChoice();
+    let result = playRound(playerSelection, computerSelection);
 
-        if (result.includes('Win')){
-            playerScore++;
-        }
-        else if(result.includes('Lose')){
-            computerScore++;
-        }
+    console.log(result);
+
+    if (result.includes('Win')) {
+        playerScore++;
+    }
+    else if (result.includes('Lose')) {
+        computerScore++;
     }
 
-    if(playerScore > computerScore){
+
+    if (playerScore > computerScore) {
         console.log("You win the game!")
     }
 
-    else if (playerScore < computerScore){
+    else if (playerScore < computerScore) {
         console.log("You lose the game!")
     }
 
-    else{
+    else {
         console.log("It's a tie!");
     }
 }
