@@ -1,3 +1,6 @@
+let playerScore = 0;
+let computerScore = 0;
+
 function getComputerChoice() {
     const options = ["Rock", "Paper", "Scissors"];
     let randomIndex = Math.floor(Math.random() * 3);
@@ -25,12 +28,8 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function game() {
-    let playerScore = 0;
-    let computerScore = 0;
+function game(playerSelection) {
 
-
-    let playerSelection = prompt("Enter your choice: ");
     let computerSelection = getComputerChoice();
     let result = playRound(playerSelection, computerSelection);
 
@@ -44,17 +43,20 @@ function game() {
     }
 
 
-    if (playerScore > computerScore) {
+    if (playerScore == 5) {
         console.log("You win the game!")
     }
 
-    else if (playerScore < computerScore) {
+    else if (computerScore == 5) {
         console.log("You lose the game!")
-    }
-
-    else {
-        console.log("It's a tie!");
     }
 }
 
-game();
+const rock = document.querySelector("#rock");
+rock.addEventListener('click', () => game('Rock'))
+
+const paper = document.querySelector("#paper");
+paper.addEventListener('click', () => game('Paper'))
+
+const scissors = document.querySelector("#scissors");
+scissors.addEventListener('click', () => game('Scissors'))
