@@ -55,13 +55,13 @@ function game(playerSelection) {
     updateScore();
     updateResults(result);
 
-
+    let finalResultElement = document.querySelector("#final-result");
     if (playerScore == 5) {
-        console.log("You win the game!")
+        finalResultElement.textContent = "You won the game!";
     }
 
     else if (computerScore == 5) {
-        console.log("You lose the game!")
+        finalResultElement.textContent = "You lost the game!";
     }
 }
 
