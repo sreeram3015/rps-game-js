@@ -1,6 +1,16 @@
 let playerScore = 0;
 let computerScore = 0;
 
+function updateScore(){
+    const scoreElement = document.querySelector('#score');
+    scoreElement.textContent = `Player: ${playerScore} Computer: ${computerScore}`;
+}
+
+function updateResults(result){
+    const resultElement = document.querySelector('#results');
+    resultElement.textContent = result;
+}
+
 function getComputerChoice() {
     const options = ["Rock", "Paper", "Scissors"];
     let randomIndex = Math.floor(Math.random() * 3);
@@ -41,6 +51,9 @@ function game(playerSelection) {
     else if (result.includes('Lose')) {
         computerScore++;
     }
+
+    updateScore();
+    updateResults(result);
 
 
     if (playerScore == 5) {
