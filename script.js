@@ -1,6 +1,14 @@
 let playerScore = 0;
 let computerScore = 0;
 
+function resetGame(){
+    playerScore = 0;
+    computerScore = 0;
+    updateScore();
+    updateResults("");
+    document.querySelector("#final-result").textContent = "";
+}
+
 function updateScore(){
     const scoreElement = document.querySelector('#score');
     scoreElement.textContent = `Player: ${playerScore} Computer: ${computerScore}`;
@@ -39,6 +47,10 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game(playerSelection) {
+
+    if(playerScore == 5 || computerScore == 5){
+        resetGame();
+    }
 
     let computerSelection = getComputerChoice();
     let result = playRound(playerSelection, computerSelection);
